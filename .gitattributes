@@ -1,0 +1,13 @@
+* text=auto
+
+# Скрипты
+gradlew     text eol=lf
+*.sh        text eol=lf
+*.bat       text eol=crlf
+
+# Бинарные файлы
+*.png       binary
+*.jpg       binary
+*.jar       binary
+*.jks       binary
+*.keystore  binary
