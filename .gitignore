@@ -18,8 +18,7 @@ captures
 **/xcshareddata/WorkspaceSettings.xcsettings
 node_modules/
 
-# Инструкции для нейросети (локальные)
+# Не надо подглядывать, я балуюсь
 CLAUDE.md
-
-# Локальная копия решений по MVP
 MVP_DECISIONS.md
+PLAN.md
