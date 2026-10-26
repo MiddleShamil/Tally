@@ -22,6 +22,7 @@ class FeatureImplPlugin : Plugin<Project> {
                 implementation(project(path.substringBeforeLast(':') + ":api"))
                 implementation(project(":core:domain"))
                 implementation(project(":core:ui"))
+                implementation(project(":core:logging"))
             }
         }
     }
