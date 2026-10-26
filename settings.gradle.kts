@@ -1,6 +1,7 @@
 rootProject.name = "Tally"
 
 pluginManagement {
+    includeBuild("convention-plugins/base")
     repositories {
         google {
             mavenContent {
@@ -32,6 +33,17 @@ plugins {
 }
 
 include(":androidApp")
-include(":desktopApp")
 include(":shared")
-include(":webApp")
+include(":core:domain")
+include(":core:data")
+include(":core:database")
+include(":core:network")
+include(":core:ui")
+include(":feature:diary:api")
+include(":feature:diary:impl")
+include(":feature:products:api")
+include(":feature:products:impl")
+include(":feature:scanner:api")
+include(":feature:scanner:impl")
+include(":feature:profile:api")
+include(":feature:profile:impl")
