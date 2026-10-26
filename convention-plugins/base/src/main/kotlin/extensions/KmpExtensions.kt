@@ -7,5 +7,5 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 fun Project.kotlinMultiplatformConfig(block: KotlinMultiplatformExtension.() -> Unit) {
     extensions.findByType<KotlinMultiplatformExtension>()
         ?.apply(block)
-        ?: error("Kotlin multiplatform was not been added")
+        ?: error("Kotlin Multiplatform plugin has not been applied")
 }

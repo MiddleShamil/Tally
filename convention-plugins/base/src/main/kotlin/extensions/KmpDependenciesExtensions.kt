@@ -21,12 +21,6 @@ fun Project.androidMainDependencies(block: KotlinDependencyHandler.() -> Unit) {
     }
 }
 
-fun Project.jvmMainDependencies(block: KotlinDependencyHandler.() -> Unit) {
-    kotlinMultiplatformConfig {
-        sourceSets.jvmMain.dependencies(block)
-    }
-}
-
 fun Project.iosMainDependencies(block: KotlinDependencyHandler.() -> Unit) {
     kotlinMultiplatformConfig {
         sourceSets.iosMain.dependencies(block)

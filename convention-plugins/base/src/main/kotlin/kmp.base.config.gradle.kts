@@ -1,5 +1,6 @@
 import extensions.kotlinJvmCompilerOptions
 import extensions.libs
+import extensions.projectJavaVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,11 +11,11 @@ plugins {
 
 kotlin {
     android {
-        compileSdk = libs.versions.android.compileSdk.get().toInt()
-        minSdk = libs.versions.android.minSdk.get().toInt()
+        compileSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
     }
     iosArm64()
     iosSimulatorArm64()
 }
 
-kotlinJvmCompilerOptions { jvmTarget = JvmTarget.fromTarget(libs.versions.java.get()) }
+kotlinJvmCompilerOptions { jvmTarget = JvmTarget.fromTarget(projectJavaVersion.toString()) }

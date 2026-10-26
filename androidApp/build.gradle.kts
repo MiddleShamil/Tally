@@ -1,7 +1,5 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.composeCompiler)
-    id("android.base.config")
+    id("android.application.plugin")
 }
 
 dependencies {
@@ -18,15 +16,14 @@ android {
 
     defaultConfig {
         applicationId = "ru.abdullaev.tally"
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -35,8 +32,5 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    buildFeatures {
-        compose = true
     }
 }

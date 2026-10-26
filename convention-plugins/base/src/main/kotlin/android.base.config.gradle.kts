@@ -7,11 +7,11 @@ import extensions.projectJavaVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 androidConfig {
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = libs.versions.compileSdk.get().toInt()
 }
 
 androidDefaultConfig {
-    minSdk = libs.versions.android.minSdk.get().toInt()
+    minSdk = libs.versions.minSdk.get().toInt()
 }
 
 androidCompileOptions {

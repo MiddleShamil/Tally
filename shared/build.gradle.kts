@@ -1,9 +1,8 @@
-import extensions.commonMainDependencies
 import extensions.iosRegularFramework
 
 plugins {
-    id("android.base.test.config")
-    id("kmp.compose.config")
+    id("kmp.compose.library.plugin")
+    id("kmp.koin.plugin")
 }
 
 kotlin {
@@ -19,11 +18,6 @@ kotlin {
             enable = true
         }
     }
-}
-
-commonMainDependencies {
-    implementation(libs.androidx.lifecycle.viewmodelCompose)
-    implementation(libs.androidx.lifecycle.runtimeCompose)
 }
 
 dependencies {

@@ -1,11 +1,11 @@
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.`kotlin-dsl`
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `kotlin-dsl`
 }
+
+group = "ru.abdullaev.tally.conventionplugins"
 
 dependencies {
     implementation(libs.gradleplugin.android)

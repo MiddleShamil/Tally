@@ -1,7 +1,7 @@
 rootProject.name = "Tally"
 
 pluginManagement {
-    includeBuild("convention-plugins/base")
+    includeBuild("convention-plugins/project")
     repositories {
         google {
             mavenContent {
@@ -39,6 +39,7 @@ include(":core:data")
 include(":core:database")
 include(":core:network")
 include(":core:ui")
+include(":core:logging")
 include(":feature:diary:api")
 include(":feature:diary:impl")
 include(":feature:products:api")
