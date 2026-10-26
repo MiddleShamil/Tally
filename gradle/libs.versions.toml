@@ -54,6 +54,7 @@ androidx-test-runner = "1.7.0"
 
 # Статический анализ
 detekt = "1.23.8"
+detekt-composeRules = "0.6.8"
 
 [libraries]
 # Plugins for composite build
@@ -133,6 +134,10 @@ turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 # Тесты (androidDeviceTest) — android.base.test.config
 androidx-testExt-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-testExt" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner" }
+
+# Правила detekt (detektPlugins) — корневой проект
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-composeRules = { module = "io.nlopez.compose.rules:detekt", version.ref = "detekt-composeRules" }
 
 [plugins]
 # Android

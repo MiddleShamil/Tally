@@ -1,0 +1,21 @@
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable']
+    excludes: ['**/commonTest/**', '**/androidHostTest/**', '**/androidDeviceTest/**', '**/iosTest/**']
+
+complexity:
+  LongParameterList:
+    ignoreAnnotated: ['Composable']
+
+style:
+  NewLineAtEndOfFile:
+    active: false
+  UnusedPrivateMember:
+    ignoreAnnotated: ['Preview']
+  MagicNumber:
+    ignoreAnnotated: ['Preview']
+    excludes: ['**/commonTest/**', '**/androidHostTest/**', '**/androidDeviceTest/**', '**/iosTest/**', '**/*.kts']
+
+formatting:
+  FinalNewline:
+    active: false
