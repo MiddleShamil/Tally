@@ -32,6 +32,10 @@
           - 'settings.gradle.kts'
           - 'gradle.properties'
 
+'scope: ci':
+  - changed-files:
+      - any-glob-to-any-file: '.github/**'
+
 'platform: android':
   - changed-files:
       - any-glob-to-any-file:
