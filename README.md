@@ -1,46 +1,52 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop (JVM).
+# Tally
 
-* [/iosApp](./iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+Дневник питания на Kotlin Multiplatform + Compose Multiplatform для Android и iOS.
+Продукты берутся из [Open Food Facts](https://world.openfoodfacts.org) и хранятся локально.
 
-* [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./shared/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./shared/src/jvmMain/kotlin)
-    folder is the appropriate location.
+## Структура
 
-### Running the apps
+```
+androidApp/              Android-приложение (точка входа)
+iosApp/                  iOS-приложение (Xcode-проект, точка входа)
+shared/                  Собирает все feature:*:impl, Koin и навигацию; iOS-фреймворк Shared
+core/
+  domain/                Модели и use case
+  data/                  Репозитории
+  database/              Room KMP, DAO; схема в core/database/schemas
+  network/               Ktor, Open Food Facts API
+  ui/                    Тема, базовый MVI
+  logging/               Kermit
+feature/<name>/
+  api/                   Маршруты и контракты фичи
+  impl/                  Экраны и логика; зависит только от api других фич и core
+convention-plugins/
+  base/                  Базовая настройка: KMP-таргеты, Android SDK, Compose, тесты, хелперы
+  project/               Плагины для модулей: kmp.library, kmp.compose.library, feature.api/impl,
+                         kmp.room, kmp.ktor, kmp.koin, kmp.coroutines, kmp.serialization
+config/detekt/           Конфиг detekt (только отличия от стандартного)
+```
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
+Фичи: `diary`, `products`, `scanner`, `profile`.
+Версии библиотек — в `gradle/libs.versions.toml`.
 
-- Android app: `./gradlew :androidApp:assembleDebug`
-- Desktop app:
-  - Hot reload: `./gradlew :desktopApp:hotRun --auto`
-  - Standard run: `./gradlew :desktopApp:run`
-- Web app:
-  - Wasm target (faster, modern browsers): `./gradlew :webApp:wasmJsBrowserDevelopmentRun`
-  - JS target (slower, supports older browsers): `./gradlew :webApp:jsBrowserDevelopmentRun`
-- iOS app: open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+## Требования
 
-### Running tests
+- JDK 17
+- Android: minSdk 26
+- iOS: Xcode (не только Command Line Tools) для сборки фреймворка и запуска приложения
 
-Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
+## Сборка и запуск
 
-- Android tests: `./gradlew :shared:testAndroidHostTest`
-- Desktop tests: `./gradlew :shared:jvmTest`
-- Web tests:
-  - Wasm target: `./gradlew :shared:wasmJsTest`
-  - JS target: `./gradlew :shared:jsTest`
-- iOS tests: `./gradlew :shared:iosSimulatorArm64Test`
+- Android: `./gradlew :androidApp:assembleDebug` или run-конфигурация в Android Studio
+- iOS: открыть `iosApp/iosApp.xcodeproj` в Xcode и запустить
 
----
+## Тесты
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
-[Compose Multiplatform](https://kotlinlang.org/compose-multiplatform/),
-[Kotlin/Wasm](https://kotl.in/wasm/)…
+- Android (JVM): `./gradlew testAndroidHostTest`
+- iOS (симулятор): `./gradlew iosSimulatorArm64Test`
 
-We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-If you face any issues, please report them on [YouTrack](https://youtrack.jetbrains.com/newIssue?project=CMP).
+## Статический анализ
+
+- Проверка: `./gradlew detekt`
+- Автоисправление форматирования: `./gradlew detekt --auto-correct`
+- Отчёты: `build/reports/detekt/` (HTML и SARIF)
