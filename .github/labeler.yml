@@ -1,0 +1,53 @@
+'feature: diary':
+  - changed-files:
+      - any-glob-to-any-file: 'feature/diary/**'
+
+'feature: products':
+  - changed-files:
+      - any-glob-to-any-file: 'feature/products/**'
+
+'feature: scanner':
+  - changed-files:
+      - any-glob-to-any-file: 'feature/scanner/**'
+
+'feature: profile':
+  - changed-files:
+      - any-glob-to-any-file: 'feature/profile/**'
+
+'scope: core':
+  - changed-files:
+      - any-glob-to-any-file: 'core/**'
+
+'scope: shared':
+  - changed-files:
+      - any-glob-to-any-file: 'shared/**'
+
+'scope: build-logic':
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'convention-plugins/**'
+          - 'gradle/**'
+          - 'config/detekt/**'
+          - 'build.gradle.kts'
+          - 'settings.gradle.kts'
+          - 'gradle.properties'
+
+'scope: ci':
+  - changed-files:
+      - any-glob-to-any-file: '.github/**'
+
+'platform: android':
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'androidApp/**'
+          - '**/src/androidMain/**'
+
+'platform: ios':
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'iosApp/**'
+          - '**/src/iosMain/**'
+
+'platform: common':
+  - changed-files:
+      - any-glob-to-any-file: '**/src/commonMain/**'
