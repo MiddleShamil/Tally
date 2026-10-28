@@ -23,6 +23,7 @@ commonMainDependencies {
     implementation(libs.androidx.navigation.compose)
 
     implementation(project(":core:data"))
+    implementation(project(":core:database"))
 
     implementation(project(":feature:diary:impl"))
     implementation(project(":feature:products:impl"))

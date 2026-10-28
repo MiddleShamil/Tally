@@ -10,6 +10,7 @@ plugins {
 
 commonMainDependencies {
     implementation(libs.kotlinx.datetime)
+    implementation(project(":core:domain"))
     implementation(project(":core:logging"))
 }
 
